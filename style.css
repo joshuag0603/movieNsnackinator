@@ -1,1 +1,21 @@
 /* test */
+
+
+
+h1 {
+    color: whitesmoke;
+
+}
+
+img {
+    width: 100%;
+    max-height: 200px;
+}
+
+ul li {
+    color: whitesmoke;
+    list-style: none;
+    display: inline;
+    text-align: center;
+    justify-content: center;
+}
