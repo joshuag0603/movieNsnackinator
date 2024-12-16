@@ -1,21 +1,39 @@
-/* test */
-
-
-
 h1 {
     color: whitesmoke;
-
-}
-
-img {
-    width: 100%;
-    max-height: 200px;
+    line-height: 50px;
+    vertical-align: middle;
 }
 
 ul li {
     color: whitesmoke;
     list-style: none;
     display: inline;
+    margin:20px;
+    vertical-align: middle;
+}
+
+#moviesection h2 {
     text-align: center;
+}
+
+#snacksection h2 {
+    text-align: center;
+}
+
+#moviesection form {
+    text-align:center;
+    display: flex;
     justify-content: center;
+    
+}
+
+#snacksection form {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+#button {
+    text-align: center;
+    margin: 20px;
 }
