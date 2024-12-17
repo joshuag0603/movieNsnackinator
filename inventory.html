@@ -13,21 +13,25 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <link href="./assets/css/style.css" rel="stylesheet">
   </head>
+
   <body>
     <header>
-      <nav>
-        <ul class="nav nav-pills">
-          <li class="nav-item">
-            <a class="nav-link active" href="index.html"
-              >Back to SnackNMovienator</a
-            >
-          </li>
-        </ul>
+      <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="light">
+       <h1>Movie and Snack Recommender</h1>
+          <ul>
+             <li id="homenav"> 
+                <a class="nav-link active" href="index.html"> Home </a>
+             </li>
+             <li id="inventorynav">
+                <a class="nav-link active" href="inventory.html"> Inventory </a>
+            </li>
+      </ul>
       </nav>
-      <!-- placeholder name in h1 -->
-      <h1 style="font-family: cursive">Movie and Pantry Inventory</h1>
+      <h2> Inventory </h2>
     </header>
+    
     <main>
       <section id="movie-list">
         <table class="table table-dark" style="font-family: cursive">
