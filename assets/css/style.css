@@ -14,10 +14,12 @@ ul li {
 
 #moviesection h2 {
     text-align: center;
+    display: block;
 }
 
 #snacksection h2 {
     text-align: center;
+    display: block;
 }
 
 #moviesection form {
