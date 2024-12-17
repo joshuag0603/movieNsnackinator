@@ -1,66 +1,72 @@
-// const pikachuList = document.querySelector('#pikachu-list');
-// const pantryList = document.querySelector('#pantry-list');
-// const pikachuCountSpan = document.querySelector('#pikachu-count');
-// const snackCountSpan = document.querySelector('#snack-count');
+let movieList = JSON.parse(localStorage.getItem('movies')) || [];
+console.log('movies list ', movieList);
 
-// const pikachus = [];
-// const snacks = [];
+let snacksList = JSON.parse(localStorage.getItem('snacks'))|| [];
+console.log('snacks list', snacksList);
 
-// Sample array of pikachu titles
-let pikachus = ["Inception", "The Matrix", "Interstellar", "The Shawshank Redemption"];
-
-// Function to display pikachus in the table
-function display(id,values) {
-    const pikachuList = document.getElementById(id).getElementsByTagName('tbody')[0];
-    console.log(pikachuList);
-
-    // Clear the table body only if it is the first display
-    if (pikachuList.rows.length === 0) {
-        pikachus.forEach((pikachu, index) => {
-            const row = pikachuList.insertRow();
+// Function to display movies in the table
+function displayMovies() {
+    const filmTable = document.getElementById('movie-list').getElementsByTagName('tbody')[0];
+    filmTable.innerHTML = ''; //clear table before displaying updated list
+    
+    movieList.forEach((movie, index) => {
+            const row = filmTable.insertRow();
             const cellTitle = row.insertCell(0);
             const cellAction = row.insertCell(1);
 
-            cellTitle.textContent = pikachu;
-            cellAction.innerHTML = `<button onclick="removepikachu(${index})">Remove</button>`;
+            cellTitle.textContent = movie;
+            cellAction.innerHTML = `<button onclick="removemovie(${index})">Remove</button>`;
         });
     }
-}
 
 // Function to remove a pikachu from the array
-function removepikachu(index) {
-    pikachus.splice(index, 1); // Remove the pikachu from the array
-    refreshpikachuList(); // Refresh the displayed list
+function removemovie(index) {
+    // console.log('removing movie at index', index)
+    movieList.splice(index, 1); // Remove the movie from the array
+    localStorage.setItem('movies', JSON.stringify(movieList))
+    displayMovies(); //refresh table 
 }
 
-// Function to refresh the pikachu list after removal
-function refreshpikachuList() {
-    const pikachuList = document.getElementById('movie-list').getElementsByTagName('tbody')[0];
-    pikachuList.innerHTML = ''; // Clear existing entries
+// Function to display pikachus in the table
+function displayPantry() {
+    const cupBoard = document.getElementById('pantry-list').getElementsByTagName('tbody')[0];
+    cupBoard.innerHTML = ''; //clear table before displaying updated list
 
-    pikachus.forEach((pikachu, index) => {
-        const row = pikachuList.insertRow();
+    snacksList.forEach((snack, index) => {
+        const row = cupBoard.insertRow();
         const cellTitle = row.insertCell(0);
         const cellAction = row.insertCell(1);
 
-        cellTitle.textContent = pikachu;
-        cellAction.innerHTML = `<button onclick="removepikachu(${index})">Remove</button>`;
+        cellTitle.textContent = snack;
+        cellAction.innerHTML = `<button onclick="removeSnack(${index})">Remove</button>`;
     });
 }
 
-// Initial display of pikachus
-display('movie-list');
-display('pantry-list');
-// function renderpikachus() {
-//     pikachuList.innerHTML = '';
-//     pikachuCountSpan.textContent = pikachus.length;
+// Function to remove a snack
+function removeSnack(index) {
+    // console.log('removing snack at index', index):
+    snacksList.splice(index, 1); // Remove the item from the array
+    localStorage.setItem('snacks', JSON.stringify(snacksList)) //updates snack list
+    displayPantry(); // Refreshs the table
+}
 
-//     for ()
-// }
+//gather and save inventory
+function gatherInventory () {
+    localStorage.setItem('movies', JSON.stringify(movieList));
+    localStorage.setItem('snacks', JSON.stringify(snacksList));
+    
+    displayMovies();
+    displayPantry();
 
-// function init() {
-//     // const storedTodos = JSON.parse(localStorage.getItem('pikachus'));
-//     const storedTodos = localStorage.getItem('pikachus');
-// }
+};
 
-// console.log(storedTodos);
+function init() {
+   
+    displayMovies()
+    displayPantry()
+}
+
+
+gatherInventory()
+// initialize
+init()
