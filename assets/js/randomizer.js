@@ -1,18 +1,20 @@
 const form = document.getElementById ('form');
 const movieButton = document.getElementById('movieButtonEntry');
 const snackButton = document.getElementById('snackButtonEntry');
-const randomButton = document.getElementById('button');
+const randomButton = document.getElementById('buttonRandom');
 const moviesSubmitted = document.getElementById('movieInputs');
 const snacksSubmitted = document.getElementById ('snackInputs');
-let moviesList = JSON.parse(localStorage.getItem('movies')) || [];
+const modalMovieContent = document.getElementById("modalMovieText");
+const modalSnackContent = document.getElementById("modalSnackText");
+let moviesList = JSON.parse(localStorage.getItem('movies')) || []; //Good Error Handling!
 let snacksList = JSON.parse(localStorage.getItem('snacks')) || [];
 
 function clearMoviesForm() {
-    moviesSubmitted.value ="";
-    };
-function clearSnacksForm (){
-    snacksSubmitted.value =""
-    };
+    moviesSubmitted.value = "";
+};
+function clearSnacksForm() {
+    snacksSubmitted.value = "";
+};
 
 function movieButtonClicked () {
 
@@ -24,7 +26,8 @@ function movieButtonClicked () {
         if (moviesSubmitted.value === "") {
             //  errorMessage.textContent = "Please add some movies!";
                 console.log ("You can't eat snacks wihout a movie! Please add some movies!");
-                return; };
+                return; 
+            };
 
         const moviesLogged = moviesSubmitted.value.trim();
         moviesList.push(moviesLogged);
@@ -59,14 +62,32 @@ function movieButtonClicked () {
   snackButtonClicked();
   console.log('Snacks are entered');
 
-const getRandomMovie = function (moviesArray) {
-    const random1Index = Math.floor(Math.random() * moviesArray.length);
-    const randomMovieName = moviesArray[randomIndex];
-    console.log(`The movie you should watch is: ${randomMovieName}`);
-  };
+function randomizerButton () {
 
-const getRandomSnack = function (snacksArray) {
-    const random2Index = Math.floor(Math.random() * snacksArray.length);
-    const randomSnackName = snacksArray[randomIndex];
+    randomButton.addEventListener("click", function(event) {
+    event.preventDefault();
+    const movieArray = JSON.parse(localStorage.getItem("movies"));
+    const snackArray = JSON.parse(localStorage.getItem("snacks"));
+
+    getRandomMovie(movieArray);
+    getRandomSnack(snackArray);
+    return;
+})};
+
+const getRandomMovie = function (movieArray) {
+    const random1Index = Math.floor(Math.random() * movieArray.length);
+    const randomMovieName = movieArray[random1Index];
+    console.log(`The movie you should watch is: ${randomMovieName}`);
+    modalMovieContent.textContent = `The movie you should watch is: ${randomMovieName}`;
+    return;
+};
+
+const getRandomSnack = function (snacksList) {
+    const random2Index = Math.floor(Math.random() * snacksList.length);
+    const randomSnackName = snacksList[random2Index];
     console.log(`The snack you should eat is: ${randomSnackName}`);
-  };
+    modalSnackContent.textContent = `The snack you should eat is: ${randomSnackName}`;
+    return;
+};
+
+randomizerButton();
