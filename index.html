@@ -31,24 +31,31 @@
 <div class="banner"> </div>
 
 <main>
-  <section id="moviesection">
-    <h2>Movie section</h2>
-      <form class="form-group">
-        <label for = 'movieInputs'>What movies do you have?</label>
-        <input type = text class="form-control" id = "movieInputs" name = "moviename" placeholder = "Enter your movies" style="text-align:center">
-      </form>
-      <button type="button" id = movieButtonEntry>Submit your movies!</button>
-  </section>
-    
-  <section id="snacksection">
-    <h2>Snack section</h2>
-    <form class="form-group">
-      <label for = 'snackInputs'>What snacks do you have?</label>
-      <input type = text class="form-control" id = "snackInputs" name = "snackname" placeholder = "Enter your snacks" style="text-align:center">
-    </form>
-    <button type="button" id = snackButtonEntry>Submit your snacks!</button>
-
-  </section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <section id="moviesection">
+          <h2>Movie section</h2>
+          <form class="form-group">
+            <label for='movieInputs'>What movies do you have?</label>
+            <input type="text" class="form-control" id="movieInputs" name="moviename" placeholder="Enter your movies" style="text-align:center">
+          </form>
+          <button type="button" id="movieButtonEntry" class="btn btn-primary">Submit your movies!</button>
+        </section>
+      </div>
+  
+      <div class="col-md-6">
+        <section id="snacksection">
+          <h2>Snack section</h2>
+          <form class="form-group">
+            <label for='snackInputs'>What snacks do you have?</label>
+            <input type="text" class="form-control" id="snackInputs" name="snackname" placeholder="Enter your snacks" style="text-align:center">
+          </form>
+          <button type="button" id="snackButtonEntry" class="btn btn-primary">Submit your snacks!</button>
+        </section>
+      </div>
+    </div>
+  </div>
   
   <section id="buttonRandom">
     <button type="button" class="btn btn-primary"> Get your recommendation!</button>
