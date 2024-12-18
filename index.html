@@ -28,40 +28,58 @@
     </nav>
   </header>
 
-<div class="banner"> </div>
+<div> 
+  <img src ="https://as1.ftcdn.net/v2/jpg/08/46/39/66/1000_F_846396615_mzBGp6wEu9hyohpNUYoF90GUECeHINsd.jpg" alt="popcorn banner" id="banner"> 
+</div>
 
 <main>
-  <section id="moviesection">
-    <h2>Movie section</h2>
-      <form class="form-group">
-        <label for = 'movieInputs'>What movies do you have?</label>
-        <input type = text class="form-control" id = "movieInputs" name = "moviename" placeholder = "Enter your movies" style="text-align:center">
-      </form>
-      <button type="button" id = movieButtonEntry>Submit your movies!</button>
-  </section>
-    
-  <section id="snacksection">
-    <h2>Snack section</h2>
-    <form class="form-group">
-      <label for = 'snackInputs'>What snacks do you have?</label>
-      <input type = text class="form-control" id = "snackInputs" name = "snackname" placeholder = "Enter your snacks" style="text-align:center">
-    </form>
-    <button type="button" id = snackButtonEntry>Submit your snacks!</button>
-
-  </section>
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col-md-6">
+        <section id="moviesection">
+          <h2>Movies</h2>
+          <form class="form-group d-block">
+            <label class='m-3' for='movieInputs'>What movies do you have?</label>
+            <input type="text" class="form-control" id="movieInputs" name="moviename" placeholder="Enter your movies" style="text-align:center">
+          </form>
+          <div class='d-flex justify-content-center'>
+          <button type="button" id="movieButtonEntry" class="btn btn-dark mt-3">Submit your movies!</button>
+        </div>
+        </section>
+      </div>
   
-  <section id="buttonRandom">
-    <button type="button">Get your recommendation!</button>
-  </section>
-
-  <div id="myModal" class="modal">
-    
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <p id="modalMovieText"></p>
-      <p id="modalSnackText"></p>
+      <div class="col-md-6">
+        <section id="snacksection">
+          <h2>Snacks</h2>
+          <form class="form-group d-block">
+            <label class='m-3' for='snackInputs'>What snacks do you have?</label>
+            <input type="text" class="form-control" id="snackInputs" name="snackname" placeholder="Enter your snacks" style="text-align:center">
+          </form>
+          <div class='d-flex justify-content-center'>
+          <button type="button" id="snackButtonEntry" class="btn btn-dark mt-3">Submit your snacks!</button>
+        </div>
+        </section>
+      </div>
     </div>
+  </div>
   
+  <section class='d-flex justify-content-center m-3' id="buttonRandom">
+    <button type="button" class="btn btn-dark mt-3 "> Get your recommendation!</button>
+  </section>
+
+  <div id="recModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"> Recommendations </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p id="modalMovieText"></p>
+          <p id="modalSnackText"></p>
+        </div>
+      </div>
+    </div>
   </div>
 
 </main>
