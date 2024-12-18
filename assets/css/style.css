@@ -1,17 +1,3 @@
-h1 {
-    color: whitesmoke;
-    line-height: 50px;
-    vertical-align: middle;
-}
-
-ul li {
-    color: whitesmoke;
-    list-style: none;
-    display: inline;
-    margin:20px;
-    vertical-align: middle;
-}
-
 #moviesection h2 {
     text-align: center;
     display: block;
