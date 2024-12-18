@@ -7,18 +7,23 @@ console.log('snacks list', snacksList);
 // Function to display movies in the table
 function displayMovies() {
     const filmTable = document.getElementById('movie-list').getElementsByTagName('tbody')[0];
-    filmTable.innerHTML = ''; //clear table before displaying updated list
+    filmTable.innerHTML = ''; // Clear table before displaying updated list
     
     movieList.forEach((movie, index) => {
-            const row = filmTable.insertRow();
-            const cellTitle = row.insertCell(0);
-            const cellAction = row.insertCell(1);
+        const row = filmTable.insertRow();
+        row.classList.add('align-middle')
+        const cellTitle = row.insertCell(0);
+        const cellAction = row.insertCell(1);
 
-            cellTitle.textContent = movie;
-            cellAction.innerHTML = `<button onclick="removemovie(${index})" class="btn btn-sm btn-danger">Remove</button>`;
-        });
-        document.getElementById('movie-count').textContent = movieList.length; 
-    }
+        cellTitle.textContent = movie;
+        cellTitle.classList.add('text-center', 'pe-3'); // Center movie titles
+        cellAction.innerHTML = `<div class="d-flex justify-content-end">
+                                    <button onclick="removemovie(${index})" class="btn btn-sm btn-danger">Remove</button>
+                                </div>`;
+        cellAction.classList.add('w-25');
+    });
+    document.getElementById('movie-count').textContent = movieList.length; 
+}
 
 // Function to remove a pikachu from the array
 function removemovie(index) {
@@ -28,19 +33,26 @@ function removemovie(index) {
     displayMovies(); //refresh table 
 }
 
-// Function to display pikachus in the table
+// Function to display snacks in the table
 function displayPantry() {
     const cupBoard = document.getElementById('pantry-list').getElementsByTagName('tbody')[0];
-    cupBoard.innerHTML = ''; //clear table before displaying updated list
+    cupBoard.innerHTML = ''; // Clear table before displaying updated list
 
     snacksList.forEach((snack, index) => {
         const row = cupBoard.insertRow();
+        row.classList.add('align-middle')
         const cellTitle = row.insertCell(0);
         const cellAction = row.insertCell(1);
 
         cellTitle.textContent = snack;
-        cellAction.innerHTML = `<button onclick="removeSnack(${index})" class="btn btn-sm btn-danger">Remove</button>`;
+        cellTitle.classList.add('text-center','pe-3');
+        cellAction.innerHTML = `<div class="d-flex justify-content-end">
+                                    <button onclick="removeSnack(${index})" class="btn btn-sm btn-danger">Remove</button>
+                                </div>`;
+        cellAction.classList.add('w-25');
     });
+
+    // Update the snack count
     document.getElementById('snack-count').textContent = snacksList.length; 
 }
 
