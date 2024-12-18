@@ -71,23 +71,26 @@ function randomizerButton () {
 
     getRandomMovie(movieArray);
     getRandomSnack(snackArray);
+    showRecModal();
     return;
 })};
 
 const getRandomMovie = function (movieArray) {
     const random1Index = Math.floor(Math.random() * movieArray.length);
     const randomMovieName = movieArray[random1Index];
-    console.log(`The movie you should watch is: ${randomMovieName}`);
     modalMovieContent.textContent = `The movie you should watch is: ${randomMovieName}`;
     return;
 };
-
 const getRandomSnack = function (snacksList) {
     const random2Index = Math.floor(Math.random() * snacksList.length);
     const randomSnackName = snacksList[random2Index];
-    console.log(`The snack you should eat is: ${randomSnackName}`);
     modalSnackContent.textContent = `The snack you should eat is: ${randomSnackName}`;
     return;
 };
+function showRecModal() {
+    const modalElement = document.getElementById('recModal');
+    const myModal = new bootstrap.Modal(modalElement);
+    myModal.show();
+    };
 
 randomizerButton();
