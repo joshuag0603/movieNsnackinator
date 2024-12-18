@@ -51,17 +51,22 @@
   </section>
   
   <section id="buttonRandom">
-    <button type="button">Get your recommendation!</button>
+    <button type="button" class="btn btn-primary"> Get your recommendation!</button>
   </section>
 
-  <div id="myModal" class="modal">
-    
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <p id="modalMovieText"></p>
-      <p id="modalSnackText"></p>
+  <div id="recModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"> Recommendations </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p id="modalMovieText"></p>
+          <p id="modalSnackText"></p>
+        </div>
+      </div>
     </div>
-  
   </div>
 
 </main>
