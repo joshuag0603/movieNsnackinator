@@ -8,20 +8,23 @@ console.log('snacks list', snacksList);
 function displayMovies() {
     const filmTable = document.getElementById('movie-list').getElementsByTagName('tbody')[0];
     filmTable.innerHTML = ''; // Clear table before displaying updated list
-    
+
     movieList.forEach((movie, index) => {
         const row = filmTable.insertRow();
-        row.classList.add('align-middle')
-        const cellTitle = row.insertCell(0);
-        const cellAction = row.insertCell(1);
+        row.classList.add('align-middle'); // Add vertical alignment for rows
 
-        cellTitle.textContent = movie;
-        cellTitle.classList.add('text-center', 'pe-3'); // Center movie titles
-        cellAction.innerHTML = `<div class="d-flex justify-content-end">
-                                    <button onclick="removemovie(${index})" class="btn btn-sm btn-danger">Remove</button>
-                                </div>`;
-        cellAction.classList.add('w-25');
+        const cell = row.insertCell(0);
+
+        // Combine title and button in the same cell
+        cell.innerHTML = `
+            <div class="d-flex justify-content-between align-items-center">
+                <span>${movie}</span>
+                <button onclick="removemovie(${index})" class="btn btn-sm btn-danger">Remove</button>
+            </div>`;
+        cell.classList.add('px-3'); // Add padding for better spacing
     });
+
+    // Update the movie count
     document.getElementById('movie-count').textContent = movieList.length; 
 }
 
@@ -40,16 +43,17 @@ function displayPantry() {
 
     snacksList.forEach((snack, index) => {
         const row = cupBoard.insertRow();
-        row.classList.add('align-middle')
-        const cellTitle = row.insertCell(0);
-        const cellAction = row.insertCell(1);
+        row.classList.add('align-middle'); // Add vertical alignment for rows
 
-        cellTitle.textContent = snack;
-        cellTitle.classList.add('text-center','pe-3');
-        cellAction.innerHTML = `<div class="d-flex justify-content-end">
-                                    <button onclick="removeSnack(${index})" class="btn btn-sm btn-danger">Remove</button>
-                                </div>`;
-        cellAction.classList.add('w-25');
+        const cell = row.insertCell(0);
+
+        // Combine title and button in the same cell
+        cell.innerHTML = `
+            <div class="d-flex justify-content-between align-items-center">
+                <span>${snack}</span>
+                <button onclick="removeSnack(${index})" class="btn btn-sm btn-danger">Remove</button>
+            </div>`;
+        cell.classList.add('px-3'); // Add padding for better spacing
     });
 
     // Update the snack count
