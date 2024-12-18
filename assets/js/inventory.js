@@ -15,7 +15,7 @@ function displayMovies() {
             const cellAction = row.insertCell(1);
 
             cellTitle.textContent = movie;
-            cellAction.innerHTML = `<button onclick="removemovie(${index})">Remove</button>`;
+            cellAction.innerHTML = `<button onclick="removemovie(${index})" class="btn btn-sm btn-danger">Remove</button>`;
         });
     }
 
@@ -38,7 +38,61 @@ function displayPantry() {
         const cellAction = row.insertCell(1);
 
         cellTitle.textContent = snack;
-        cellAction.innerHTML = `<button onclick="removeSnack(${index})">Remove</button>`;
+        cellAction.innerHTML = `<button onclick="removeSnack(${index})" class="btn btn-sm btn-danger">Remove</button>`;
+    });
+}
+
+// Function to show the confirmation modal
+function showConfirmModal(imageSrc, action) {
+    // Dynamically update the modal image
+    const modalImage = document.getElementById('modal-image');
+    modalImage.src = imageSrc;
+
+    // Initialize and show the Bootstrap modal
+    const modalElement = document.getElementById('myModal');
+    const myModal = new bootstrap.Modal(modalElement);
+    myModal.show();
+
+    // Handle the Yes button click
+    const confirmYesButton = document.getElementById('confirmYes');
+    confirmYesButton.onclick = function () {
+        action(); // Execute the passed action
+        myModal.hide(); // Hide the modal
+    };
+
+    // Ensure Cancel and backdrop work as expected
+    modalElement.addEventListener('hidden.bs.modal', () => {
+        confirmYesButton.onclick = null; // Clean up the click event
+    });
+}
+
+// function to clear the entire movie list
+function clearMovieList() {
+    showConfirmModal('./assets/images/movieFire.jpg', () => {
+        movieList = []; // Clear the list
+        localStorage.setItem('movies', JSON.stringify(movieList));
+        displayMovies(); // Refresh table
+    })
+}
+
+// Function to clear the entire snack list
+function clearSnacksList() {
+    showConfirmModal('./assets/images/emptyPantry.jpg', () => {
+        snacksList = []; // Clear the list
+        localStorage.setItem('snacks', JSON.stringify(snacksList));
+        displayPantry(); // Refresh table
+    });
+}
+
+// Function to clear both lists
+function clearBothLists() {
+    showConfirmModal('./assets/images/tornadoCollection.jpg', () => {
+        movieList = [];
+        snacksList = [];
+        localStorage.setItem('movies', JSON.stringify(movieList));
+        localStorage.setItem('snacks', JSON.stringify(snacksList));
+        displayMovies();
+        displayPantry();
     });
 }
 
@@ -69,4 +123,4 @@ function init() {
 
 gatherInventory()
 // initialize
-init()
+init();
