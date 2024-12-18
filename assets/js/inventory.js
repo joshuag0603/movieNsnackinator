@@ -17,6 +17,7 @@ function displayMovies() {
             cellTitle.textContent = movie;
             cellAction.innerHTML = `<button onclick="removemovie(${index})" class="btn btn-sm btn-danger">Remove</button>`;
         });
+        document.getElementById('movie-count').textContent = movieList.length; 
     }
 
 // Function to remove a pikachu from the array
@@ -40,6 +41,7 @@ function displayPantry() {
         cellTitle.textContent = snack;
         cellAction.innerHTML = `<button onclick="removeSnack(${index})" class="btn btn-sm btn-danger">Remove</button>`;
     });
+    document.getElementById('snack-count').textContent = snacksList.length; 
 }
 
 // Function to show the confirmation modal
