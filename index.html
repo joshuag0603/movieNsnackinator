@@ -15,12 +15,12 @@
 <body>
   <header>
     <nav class="navbar navbar-expand bg-dark border-body" data-bs-theme="light">
-        <h1 class="navbar-brand text-white m-3">Movie and Snack Recommender</h1>
-        <ul class="navbar-nav ms-auto m-3">
-            <li class="nav-item" id="homenav"> 
+        <h1 class="navbar text-white m-3 display-5">Movie and Snack Recommender</h1>
+        <ul class="navbar-nav ms-auto m-3 h4">
+            <li class="nav-item border border-1 m-3" id="homenav"> 
                 <a class="nav-link active text-white" href="index.html"> Home </a>
             </li>
-            <li class="nav-item" id="inventorynav">
+            <li class="nav-item border border-1 m-3" id="inventorynav">
                 <a class="nav-link active text-white" href="inventory.html"> Inventory </a>
             </li>
         </ul>
@@ -28,43 +28,46 @@
 </header>
 
 <div> 
-  <img src ="https://as1.ftcdn.net/v2/jpg/08/46/39/66/1000_F_846396615_mzBGp6wEu9hyohpNUYoF90GUECeHINsd.jpg" alt="popcorn banner" id="banner"> 
+  <img src ="./assets/images/filmBanner.png" alt="popcorn and film banner" id="banner"> 
 </div>
 
 <main>
-  <div class="container">
+  <div class="container bg-dark mt-4 p-3">
     <div class="row">
       <div class="col-md-6 mt-3">
-        <section id="moviesection">
+        <section class="text-white" id="moviesection">
           <h2>Movies</h2>
-          <form class="form-group d-block">
+          <form class="form-group d-block" onkeydown="if(event.keyCode === 13){return false}">
             <label class='m-3' for='movieInputs'>What movies do you have?</label>
             <input type="text" class="form-control" id="movieInputs" name="moviename" placeholder="Enter your movies" style="text-align:center">
           </form>
+          <p id="movieError" class="d-block"></p>
           <div class='d-flex justify-content-center'>
-          <button type="button" id="movieButtonEntry" class="btn btn-dark mt-3">Submit your movies!</button>
+          <button type="button" id="movieButtonEntry" class="btn btn-warning mt-3 fw-bold">Submit your movies!</button>
         </div>
         </section>
       </div>
   
       <div class="col-md-6 mt-3">
-        <section id="snacksection">
+        <section class="text-white" id="snacksection">
           <h2>Snacks</h2>
-          <form class="form-group d-block">
+          <form class="form-group d-block" onkeydown="if(event.keyCode === 13){return false}">
             <label class='m-3' for='snackInputs'>What snacks do you have?</label>
             <input type="text" class="form-control" id="snackInputs" name="snackname" placeholder="Enter your snacks" style="text-align:center">
           </form>
+          <p id="snackError" class="d-block"></p>
           <div class='d-flex justify-content-center'>
-          <button type="button" id="snackButtonEntry" class="btn btn-dark mt-3">Submit your snacks!</button>
+          <button type="button" id="snackButtonEntry" class="btn btn-warning mt-3 fw-bold">Submit your snacks!</button>
         </div>
         </section>
       </div>
     </div>
+    <section class='d-flex justify-content-center m-3' id="buttonRandom">
+      <button type="button" class="btn btn-danger mt-3 fw-bold"> Get your recommendation!</button>
+    </section>
   </div>
   
-  <section class='d-flex justify-content-center m-3' id="buttonRandom">
-    <button type="button" class="btn btn-dark mt-3 "> Get your recommendation!</button>
-  </section>
+
 
   <div id="recModal" class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">

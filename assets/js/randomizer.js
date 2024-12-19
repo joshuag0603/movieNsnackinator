@@ -6,6 +6,9 @@ const moviesSubmitted = document.getElementById('movieInputs');
 const snacksSubmitted = document.getElementById ('snackInputs');
 const modalMovieContent = document.getElementById("modalMovieText");
 const modalSnackContent = document.getElementById("modalSnackText");
+const errorMessageMovies = document.getElementById("movieError");
+const errorMessageSnacks = document.getElementById("snackError");
+
 let moviesList = JSON.parse(localStorage.getItem('movies')) || []; //Good Error Handling!
 let snacksList = JSON.parse(localStorage.getItem('snacks')) || [];
 
@@ -24,17 +27,15 @@ function movieButtonClicked () {
 
         // for error message to trigger if any of the entries are blank:   
         if (moviesSubmitted.value === "") {
-            //  errorMessage.textContent = "Please add some movies!";
-                console.log ("You can't eat snacks wihout a movie! Please add some movies!");
-                return; 
-            };
+             errorMessageMovies.textContent = "You can't eat snacks without a movie! Please add some movies!";
+             return; 
+        };
 
         const moviesLogged = moviesSubmitted.value.trim();
         moviesList.push(moviesLogged);
         localStorage.setItem('movies', JSON.stringify(moviesList));
         clearMoviesForm();
-            console.log('Movies form cleared out');
-
+        errorMessageMovies.textContent ="";
         })};
 
         function snackButtonClicked () {
@@ -45,15 +46,15 @@ function movieButtonClicked () {
 
         // for error message to trigger if any of the entries are blank:   
         if (snacksSubmitted.value === "") {
-            //  errorMessage.textContent = "Please add some movies!";
-                console.log ("You can't watch movies wihout snacks! Please add some snacks!");
-                return; };
+             errorMessageSnacks.textContent = "You can't watch movies without snacks! Please add some snacks!";
+             return;
+        };
 
         const snacksLogged = snacksSubmitted.value.trim();
         snacksList.push(snacksLogged);
         localStorage.setItem('snacks', JSON.stringify(snacksList));
         clearSnacksForm();
-            console.log('Snacks form cleared out');
+        errorMessageSnacks.textContent ="";
         })};
 
   movieButtonClicked();
