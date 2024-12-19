@@ -34,12 +34,12 @@
   </div>
 
     <main>
-      <div class="container mt-3">
+      <div class="bg-dark container mt-3 p-3">
         <div class="row">
           <!-- Movie List Section -->
           <div class="col-lg-6 col-md-12">
             <section id="movie-list">
-              <table class="table table-condensed table-dark table-bordered w-100" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+              <table class="table table-danger table-condensed table-bordered w-100" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
                 <thead>
                   <tr>
                     <th colspan="2" style="text-align: center;">
@@ -52,7 +52,7 @@
                 </tbody>
               </table>
               <div class="d-flex justify-content-center pb-4">
-                <button class="btn btn-danger" onclick="clearMovieList()">Clear Movie List</button>
+                <button class="btn btn-warning fw-bold" onclick="clearMovieList()">Clear Movie List</button>
               </div>
             </section>
           </div>
@@ -60,7 +60,7 @@
           <!-- Pantry List Section -->
           <div class="col-lg-6 col-md-12">
             <section id="pantry-list">
-              <table class="table table-condensed table-bordered table-danger w-100" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
+              <table class="table table-condensed table-bordered table-danger w-100" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
                 <thead>
                   <tr>
                     <th colspan="2" style="text-align: center;">
@@ -73,7 +73,7 @@
                 </tbody>
               </table>
               <div class="d-flex justify-content-center pb-4"">
-                <button class="btn btn-danger" onclick="clearSnacksList()">Clear Snack List</button>
+                <button class="btn btn-warning fw-bold" onclick="clearSnacksList()">Clear Snack List</button>
               </div>
             </section>
           </div>
@@ -81,7 +81,7 @@
       
         <!-- Centered Button for Clearing Both Lists -->
         <div class="d-flex justify-content-center mt-5 pb-4">
-          <button class="btn btn-warning" onclick="clearBothLists()">Empty Entire Inventory</button>
+          <button class="btn btn-danger fw-bold" onclick="clearBothLists()">Empty Entire Inventory</button>
         </div>
       </div>
 
